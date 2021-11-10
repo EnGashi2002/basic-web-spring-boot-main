@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+    <style>
+        .form__group {
+            position: relative;
+            padding: 15px 0 0;
+            margin-top: 10px;
+            width: 50%;
+        }
+
+        .form__field {
+            font-family: inherit;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid #9b9b9b;
+            outline: 0;
+            font-size: 1.3rem;
+            color: #fff;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+        }
+
+        .form__field::placeholder {
+            color: transparent;
+        }
+
+        .form__field:placeholder-shown ~ .form__label {
+            font-size: 1.3rem;
+            cursor: text;
+            top: 20px;
+        }
+
+        .form__label {
+            position: absolute;
+            display: block;
+            transition: 0.2s;
+            font-size: 1rem;
+            color: #9b9b9b;
+        }
+
+        .form__field:focus {
+            padding-bottom: 6px;
+            font-weight: 700;
+            border-width: 3px;
+            border-image: linear-gradient(to right, #11998e, #38ef7d);
+            border-image-slice: 1;
+        }
+
+        .form__field:focus ~ .form__label {
+            position: absolute;
+
+            display: block;
+            transition: 0.2s;
+            font-size: 1rem;
+            color: #11998e;
+            font-weight: 700;
+        }
+
+        /* reset input */
+        .form__field:required, .form__field:invalid {
+            box-shadow: none;
+        }
+
+        /* demo */
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 1.5rem;
+            background-color: #222222;
+        }
+        @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+
+        body {
+            background: #2f2f31;
+            transform: rotateX(0.003deg);
+            height: 100vh;
+            color: #fff;
+        }
+
+        a {
+            align-content: center;
+            transform: translate(-50%, -50%);
+            color: #cecd24;
+            text-decoration: none;
+            display: inline-block;
+            font-family: Montserrat;
+            text-transform: uppercase;
+            padding: 0.5em 2em;
+            border: 2px solid #cecd24;
+            margin-left: 200px;
+            transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        a::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+
+            left: 0;
+            right: 100%;
+            bottom: 0;
+            background: #cecd24;
+            transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        a::after {
+            content: "";
+            display: inline-block;
+            background-image: url("https://image.flaticon.com/icons/png/128/109/109617.png");
+            position: absolute;
+            top: 0;
+            left: calc(100% - 3em);
+            right: 3em;
+            bottom: 0;
+            background-size: 1.5em;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        a:hover {
+            padding: 0.5em 3.5em 0.5em 0.5em;
+        }
+
+        a:hover::before {
+            left: calc(100% - 3em);
+            right: 0;
+            transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+        a:hover::after {
+            right: 0;
+            transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+
+
+
+
+
+.fill{
+
+}
+        .fill:hover,
+        .fill:focus {
+            box-shadow: inset 0 0 0 2em ;
+            background-color: deeppink;
+        }
+
+
+
+
+        article {
+            background: linear-gradient(
+                    to right,
+                    hsl(98 100% 62%),
+                    hsl(204 100% 59%)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 10vmin;
+            line-height: 1.1;
+        }
+
+
+        h1, p, body {
+            margin: 0;
+        }
+
+        p {
+            font-family: "Dank Mono", ui-monospace, monospace;
+        }
+
+        html {
+            block-size: 100%;
+            inline-size: 100%;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<center>
+<div>
+<a href="/register-user">Shto anetar</a>
+<a href="/userList">Lista e Antarve</a>
+</div>
+    <article>
+    <H1>Shto Anetarin e Ri</H1>
+        </article>
+
+<div class="form__group field">
+<form method="post" action="/register-user" th:object="${user}">
+    <label class="form__label" for="emri">Emri:</label><br/>
+    <input class="form__field" name="name" th:field="${user.name}" type="text" id="emri"><br/>
+    <label class="form__label" for="mbiemri">Mbiemri:</label><br/>
+    <input class="form__field" name="surname" th:field="${user.surname}" type="text" id="mbiemri"><br/>
+    <label class="form__label">Mosha:</label><br/>
+    <input  class="form__field" name="age" th:field="${user.age}" type="number"><br/>
+    <label class="form__label">Gender</label><br/>
+    <select name="gender" th:field="${user.gender}" style="width: 100px">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br/><br/>
+    <label>Aktiv</label>
+ <input  class="form__field" name="aktiv" th:field="${user.aktiv}" type="checkbox" value="true"><br/>
+
+
+
+    <input class="fill" type="submit" style="width: 75px; background-color: #38ef7d; margin: 75px; padding: 5px">
+    <input type="reset"  style="width: 75px; background-color: #38ef7d; margin: 75px; padding: 5px" >
+
+
+
+</form>
+</div>
+</center>
+</body>
+</html>
