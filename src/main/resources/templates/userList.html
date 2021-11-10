@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+  <style>
+
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+    }
+
+  </style>
+</head>
+<body>
+<center>
+<p>
+  <a href="/register-user">Shto anetar</a>  ||
+  <a href="/userList">Lista e Antarve</a>
+</p>
+<h1>Shto anetarin e Ri</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Emri</th>
+    <th>Mbiemri</th>
+    <th>Mosha</th>
+    <th>Gjinia</th>
+    <th>Aktiv</th>
+    <th></th>
+  </tr>
+  <tr th:each="user, iStat: ${users}">
+    <td th:text="${iStat.count}"></td>
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.surname}"></td>
+    <td th:text="${user.age}"></td>
+    <td th:text="${user.gender}"></td>
+    <td th:text="${user.aktiv}"></td>
+    <td><button th:attr="onclick=|deleteUser(${iStat.index})|">DELETE</button></td>
+  </tr>
+</table>
+</center>
+
+<script>
+  function deleteUser(index){
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = () => {
+      if(request.readyState == 4 && request.status == 200){
+        location.reload();
+      }
+    }
+    request.open("DELETE", "/user?index=" + index);
+    request.send();
+  }
+</script>
+</body>
+</html>
