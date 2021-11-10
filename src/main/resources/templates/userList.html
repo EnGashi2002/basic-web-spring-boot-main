@@ -14,17 +14,226 @@
       border-collapse: collapse;
     }
 
+    h2{
+      text-align: center;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: white;
+      padding: 30px 0;
+    }
+
+    /* Table Styles */
+
+    .table-wrapper{
+      margin: 10px 70px 70px;
+      box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    }
+
+    .fl-table {
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: normal;
+      border: none;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+      white-space: nowrap;
+      background-color: white;
+    }
+
+    .fl-table td, .fl-table th {
+      text-align: center;
+      padding: 8px;
+    }
+
+    .fl-table td {
+      border-right: 1px solid #f8f8f8;
+      font-size: 12px;
+    }
+
+    .fl-table thead th {
+      color: #ffffff;
+      background: #4FC3A1;
+    }
+
+
+    .fl-table thead th:nth-child(odd) {
+      color: #ffffff;
+      background: #324960;
+    }
+
+    .fl-table tr:nth-child(even) {
+      background: #F8F8F8;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 767px) {
+      .fl-table {
+        display: block;
+        width: 100%;
+      }
+      .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+      }
+      .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+      }
+      .fl-table thead th:last-child{
+        border-bottom: none;
+      }
+      .fl-table thead {
+        float: left;
+      }
+      .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+      }
+      .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+      }
+      .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #4a4ade;
+      }
+      .fl-table tbody tr {
+        display: table-cell;
+      }
+      .fl-table tbody tr:nth-child(odd) {
+        background: none;
+      }
+      .fl-table tr:nth-child(even) {
+        background: transparent;
+      }
+      .fl-table tr td:nth-child(odd) {
+        background: #b1c15c;
+        border-right: 1px solid #E6E4E4;
+      }
+      .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #d75050;
+      }
+      .fl-table tbody td {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    article {
+      background: linear-gradient(
+              to right,
+              hsl(98 100% 62%),
+              hsl(204 100% 59%)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 10vmin;
+      line-height: 1.1;
+    }
+
+
+    h1, p, body {
+      margin: 0;
+    }
+
+    p {
+      font-family: "Dank Mono", ui-monospace, monospace;
+    }
+
+    html {
+      block-size: 100%;
+      inline-size: 100%;
+    }
+
+
+    a {
+      margin-top: 70px;
+      align-content: center;
+      transform: translate(-50%, -50%);
+      color: #cecd24;
+      text-decoration: none;
+      display: inline-block;
+      font-family: Montserrat;
+      text-transform: uppercase;
+      padding: 0.5em 2em;
+      border: 2px solid #cecd24;
+      margin-left: 200px;
+      transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+    }
+
+    a::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      background: #cecd24;
+      transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+      z-index: -1;
+    }
+
+    a::after {
+      content: "";
+      display: inline-block;
+      background-image: url("https://image.flaticon.com/icons/png/128/109/109617.png");
+      position: absolute;
+      top: 0;
+      left: calc(100% - 3em);
+      right: 3em;
+      bottom: 0;
+      background-size: 1.5em;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+    }
+
+    a:hover {
+      padding: 0.5em 3.5em 0.5em 0.5em;
+    }
+
+    a:hover::before {
+      left: calc(100% - 3em);
+      right: 0;
+      transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+    }
+
+    a:hover::after {
+      right: 0;
+      transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+    }
   </style>
 </head>
 <body>
 <center>
 <p>
-  <a href="/register-user">Shto anetar</a>  ||
+  <a href="/register-user">Shto anetar</a>
   <a href="/userList">Lista e Antarve</a>
 </p>
-<h1>Shto anetarin e Ri</h1>
+  <article>
+    <H1>Lista Antarve</H1>
+  </article>
 
-<table>
+<table class="fl-table">
   <tr>
     <th>ID</th>
     <th>Emri</th>
