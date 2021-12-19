@@ -24,7 +24,6 @@ public class FitnessUserController {
     @PostMapping("/register-user")
     public String postUsers(Model model, @ModelAttribute FitnesUser user, HttpServletResponse response){
         users.add(user);
-        System.out.println(user);
         try {
             response.sendRedirect("/userList");
         } catch (IOException e) {
@@ -42,7 +41,6 @@ public class FitnessUserController {
 
     @DeleteMapping("/user")
     public String deleteUser(@RequestParam("index") int index){
-        System.out.println("index="+ index);
         users.remove(index);
         return null;
     }
